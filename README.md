@@ -1,10 +1,12 @@
-# [Título del trabajo]
+# Atrapa un millón
 
-[Descripción breve del proyecto a realizar (2-3 frases).]
+Basado en programa de televisión, se realizará una serie de preguntas tipo test y el usuario tendrá que apostar su dinero a la(s) respuesta(s) que crea que está(n) bien. El usuario tiene por objetivo terminar la serie de preguntas con tanto dinero como pueda.
 
 ## Integrantes del equipo
 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
+Ana García
+Valeria Colmenares
+Miriam Esteban Bruña @miriam-estebanb
 
 ## Objetivos del trabajo
 
