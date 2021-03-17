@@ -4,8 +4,8 @@ Basado en programa de televisión, se realizará una serie de preguntas tipo tes
 
 ## Integrantes del equipo
 
-Ana García
-Valeria Colmenares
+Ana García @anagarcia2706
+Valeria Colmenares @valeeria15
 Miriam Esteban Bruña @miriam-estebanb
 
 ## Objetivos del trabajo
