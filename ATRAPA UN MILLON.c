@@ -24,6 +24,8 @@ int main(){
 	}
 	
 switch(respuesta){
+	case A:
+		printf("Bienvenido, ha iniciado sesión\n");
 	case B:
 	  printf("B.Registrarse\n");
 	  printf("Introduzca su nombre:\n);
