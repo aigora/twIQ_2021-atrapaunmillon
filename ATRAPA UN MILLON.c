@@ -9,13 +9,13 @@ struct usuario{
 	char contrasena[200];
 };
 
-do{	
-	system("cls");//Borrar pantalla	
-	printf("Atrapa Un Millon\n Bienvenido al menu opciones:\n ");
-	printf("Introduce la opcion:\n");
-	printf("-----------------------\n");
-	printf("a-Iniciar sesion para jugar\n");
-	printf("b-Registrarse\n");
-	printf("c-Intrucciones\n");
-	printf("d-Salir\n");
-	printf("-----------------------\n");
+int main(){
+	int respuesta;
+printf("BIENVENIDO A ATRAPA UN MILLÓN)
+//A continuación aparecerá en pantalla un menú con 3 opciones que el usuario tendrá que elegir:
+printf("A.Registrarse\n");
+printf("B.Iniciar sesión\n");
+printf("C.Salir\n");
+       scanf("%d", respuesta);
+
+
