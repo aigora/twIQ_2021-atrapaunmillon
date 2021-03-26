@@ -24,11 +24,13 @@ int main(){
 	}
 	
 switch(respuesta){
-	case A:
-	  printf("A.Registrarse\n");
+	case B:
+	  printf("B.Registrarse\n");
 	  printf("Introduzca su nombre:\n);
 	       scanf("%s", nombreUsuario);
 	  printf("%s ya puede empezar a jugar.¡Suerte!", nombreUsuario);
 		 break;
+       
+		 
 }*/
 
