@@ -10,4 +10,4 @@ Miriam Esteban Bruña @miriam-estebanb
 
 ## Objetivos del trabajo
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+Realizar un programa que permita al usuario responder preguntas aleatorias sobre diversos temas, apostando "dinero virtual" pudiendo perder una parte de él o todo. Al final del programa, el usuario obtendrá en pantalla la cantidad de dinero que habría ganado en el famoso concurso de televisión.
