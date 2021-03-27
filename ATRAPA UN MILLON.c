@@ -1,11 +1,11 @@
 //ATRAPA UN MILLÓN
 #include<stdio.h>
 #include<string.h>//Funciones de las cadenas
-#define MAX_USUARIOS 100
+#define MAX_USUARIOS 200
 
 struct usuario{
 
-	char nombreUsuario[100];
+	char nombreUsuario[200];
 	char contrasena[200];
 };
 
@@ -21,28 +21,26 @@ int main(){
 		printf("|c-Intrucciones               |\n");
 		printf("|d-Salir                      |\n");
 		printf("|_____________________________|\n");
-	}
 	
-	fflush(stdin);
-	scanf("%c",&respuesta);
+		fflush(stdin);
+		scanf("%c",&respuesta);
 	
-	switch(respuesta)
-		{
+		switch(respuesta){
 			case 'a': printf("INICIAR SESION\n");
 					
-					//Pedir nombre de usuario+contraseña y buscar en los ficheros guardados
-					//Desarrollo del juego
-					printf("Ya puede empezar a jugar¡Suerte!");
-					break;
+				//Pedir nombre de usuario+contraseña y buscar en los ficheros guardados
+				//Desarrollo del juego
+				printf("Ya puede empezar a jugar¡Suerte!");
+				break;
 				
 			case 'b': printf("REGISTRATE\nSigue las instrucciones\n");
 					
-					//Crear fichero (pedir nombre de usuario+contraseña)	
-					break;
+				//Crear fichero (pedir nombre de usuario+contraseña)	
+				break;
 					
 			case 'c':printf("INSTRUCCIONES:\n");
 			
-					printf("En este juego deberas responder a las preguntas que se te formulen, apostando tu dinero en la(s) respuesta(s) que creas correctas. Tu objetivo es terminar el juego con la mayor cantidad de dinero posible.\n");
+				printf("En este juego deberas responder a las preguntas que se te formulen, apostando tu dinero en la(s) respuesta(s) que creas correctas. Tu objetivo es terminar el juego con la mayor cantidad de dinero posible.\n");
 					
 				do{
 					
@@ -67,7 +65,9 @@ int main(){
 							printf("Opcion no disponible\n");
 						}
 						
-						system("PAUSE");
+						system("PAUSE");		
+					}while(info!='c');
+				
 					break;
 					
 			case 'd':printf("Adios");
@@ -77,4 +77,5 @@ int main(){
 					printf("Opcion incorrecta\n");
 					break;
 		}
-	}
+	}while(respuesta!='d');
+}
