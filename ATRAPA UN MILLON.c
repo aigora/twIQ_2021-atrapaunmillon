@@ -11,10 +11,18 @@ struct usuario{
 
 int main(){
 	char respuesta,info;
+	int i;
+	char userName[200];
+	char password[200];
+	int copia=0;
+	int numUsuario=0;
+	struct usuario u[i];
+	FILE * aumfichero;
+	
 	do{
 		system("cls");//Borrar pantalla	
 		printf("ATRAPA UN MILLON\n Bienvenido al menu opciones:\n ");
-		printf("Introduce la opcion:\n");
+		printf("\nIntroduce la opcion:\n");
 		printf("._____________________________.\n");
 		printf("|a-Iniciar sesion para jugar  |\n");
 		printf("|b-Registrarse                |\n");
@@ -34,9 +42,74 @@ int main(){
 				break;
 				
 			case 'b': printf("REGISTRATE\nSigue las instrucciones\n");
+									
+					//Abrimos fichero
+					aumfichero= fopen("datosUsuarios.txt","r");
 					
-				//Crear fichero (pedir nombre de usuario+contraseña)	
-				break;
+					
+					//Comprobamos si no existe
+					if(aumfichero==NULL){
+					printf("No se ha podido encontrar el fichero\n");
+					return 0;
+					}
+					
+					//Miramos cuántos usuarios ya hay en el fichero e introducir a un vector
+					i=0;
+					while(fscanf(vpfichero,"%s %s",u[i].nombreUsuario ,u[i].contrasena)!=EOF){
+						numUsuario++;
+						i++;
+					}
+					printf("Hay %d usuarios registrados\n",numUsuario);
+					
+					//Cerramos el fichero
+					fclose(aumfichero);
+					
+					//Pedimos los datos al usuario y comprobamos si el usuario es correcto y no es el mismo que otro
+					do{
+						printf("Introduzca  nombre de usuario:\n");
+						fflush(stdin);
+						scanf("%s",userName);
+						for(i=0;i<numUsuario;i++){
+							if(strcmp(userName,u[i].nombreUsuario)==0){
+								copia=1;
+								break;
+							}else{
+								copia=0;
+							}
+						}
+						if(copia==1){
+							printf("Ususario ya existente. Pruebe de nuevo\n");
+							//system("PAUSE");
+						}else{
+							printf("Usuario valido\n");
+							
+							strcpy(u[numUsuario].nombreUsuario,userName);
+						}
+						
+					}while(copia==1);
+					
+					printf("Introduzca contrasena:\n");
+					fflush(stdin);
+					scanf("%s",u[numUsuario].contrasena);
+				
+					for(i=0;i<=numUsuario;i++){
+						printf("%s %s\n",u[i].nombreUsuario,u[i].contrasena);
+					}
+				
+					//Se abre en modo escritura
+					aumfichero= fopen("datosUsuarios.txt","w");
+					
+					
+					//Imprimimos los datos al fichero y añadimos los datos
+					for(i=0;i<=numUsuario;i++){
+				
+						fprintf(aumfichero,"%s\n%s\n",u[i].nombreUsuario,u[i].contrasena);
+					}
+					
+					//Cerramos de nuevo el fichero
+					fclose(aumfichero);
+					system("PAUSE");
+					break;	
 					
 			case 'c':printf("INSTRUCCIONES:\n");
 			
