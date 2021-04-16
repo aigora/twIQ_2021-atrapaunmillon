@@ -16,6 +16,8 @@ int main(){
 	char password[200];
 	int copia=0;
 	int numUsuario=0;
+	char respuesta1;
+	int dinero=1000000, apuesta1A, apuesta1B, apuesta1C;
 	struct usuario u[i];
 	FILE * aumfichero;
 	
@@ -37,8 +39,36 @@ int main(){
 			case 'a': printf("INICIAR SESION\n");
 					
 				//Pedir nombre de usuario+contraseña y buscar en los ficheros guardados
-				//Desarrollo del juego
+				
 				printf("Ya puede empezar a jugar¡Suerte!");
+				
+				printf("**PREGUNTA 1**\n");
+				printf("¿Cuanto es 1+1?\n");
+				printf("OPCION A: 1\n");
+				printf("OPCION B: 4\n");
+				printf("OPCION C: 2\n");
+				
+				printf("Tienes %d euros\n", dinero);
+				do {
+					printf("¿Cuanto apuestas por la opcion A?\n");
+					do {
+						scanf("%d", &apuesta1A);
+					} while (apuesta1A % 1000 != 0);
+					
+					printf("¿Cuanto apuestas por la opcion B?\n");
+					do {
+						scanf("%d", &apuesta1B);
+					} while (apuesta1B % 1000 != 0);
+					
+					printf("¿Cuanto apuestas por la opcion C?\n");
+					do {
+						scanf("%d", &apuesta1C);
+					} while (apuesta1C % 1000 != 0);
+				} while (apuesta1A + apuesta1B + apuesta1C != dinero);
+				dinero= apuesta1C;
+				printf("La opcion correcta es la C. Te quedan %d euros\n", dinero);	
+		}
+				
 				break;
 				
 			case 'b': printf("REGISTRATE\nSigue las instrucciones\n");
