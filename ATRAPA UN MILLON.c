@@ -1,7 +1,5 @@
 //ATRAPA UN MILLÓN
 #include<stdio.h>
-#include<string.h>//Funciones de las cadenas
-#define MAX_USUARIOS 200
 
 struct usuario{
 
@@ -13,11 +11,10 @@ int main(){
 	char respuesta,info;
 	int i;
 	char userName[200];
-	char password[200];
+	char password;
 	int copia=0;
-	int numUsuario=0;
-	char respuesta1;
-	int dinero=1000000, apuesta1A, apuesta1B, apuesta1C;
+	int numUsuario;
+	int apuesta1A,apuesta1B,apuesta1C;
 	struct usuario u[i];
 	FILE * aumfichero;
 	
@@ -38,39 +35,57 @@ int main(){
 		switch(respuesta){
 			case 'a': printf("INICIAR SESION\n");
 					
-				//Pedir nombre de usuario+contraseña y buscar en los ficheros guardados
-				
-				printf("Ya puede empezar a jugar¡Suerte!");
-				
-				printf("**PREGUNTA 1**\n");
-				printf("¿Cuanto es 1+1?\n");
-				printf("OPCION A: 1\n");
-				printf("OPCION B: 4\n");
-				printf("OPCION C: 2\n");
-				
-				printf("Tienes %d euros\n", dinero);
-				do {
-					printf("¿Cuanto apuestas por la opcion A?\n");
-					do {
-						scanf("%d", &apuesta1A);
-					} while (apuesta1A % 1000 != 0);
+					//Abrimos el fichero
+					aumfichero= fopen("datosUsuarios.txt","r");//Modo lectura
 					
-					printf("¿Cuanto apuestas por la opcion B?\n");
-					do {
-						scanf("%d", &apuesta1B);
-					} while (apuesta1B % 1000 != 0);
+					//Comprobamos si encuentra el fichero, si no lo encuentra, el resto del programa no funciona
+					if(aumfichero==NULL){
+					printf("No se ha podido encontrar el fichero\n");
+					return 0;
+					}
 					
-					printf("¿Cuanto apuestas por la opcion C?\n");
-					do {
-						scanf("%d", &apuesta1C);
-					} while (apuesta1C % 1000 != 0);
-				} while (apuesta1A + apuesta1B + apuesta1C != dinero);
-				dinero= apuesta1C;
-				printf("La opcion correcta es la C. Te quedan %d euros\n", dinero);	
-		}
+					//Mirar cuántos usuarios ya hay en ese fichero y guardar en un vector
+					i=0;
+					while(fscanf(aumfichero,"%s %s",&u[i].nombreUsuario ,&u[i].contrasena)!=EOF){
+						numUsuario++;
+						i++;
+					}
+					printf("Hay %d usuarios registrados\n",numUsuario);
+					
+					//Cerrar el fichero
+					fclose(aumfichero);
 				
+					//Pedimos los datos para iniciar sesión
+				do{
+					
+					printf("Introduzca  nombre de usuario:\n");
+					fflush(stdin);
+					scanf("%s",userName);
+					printf("Introduzca contrasena:\n");
+					fflush(stdin);
+					scanf("%s",password);
+					
+					//¿Existe ese usuario y contraseña?
+					for(i=0;i<numUsuario;i++){
+							if(strcmp(userName,u[i].nombreUsuario)==0 && strcmp(password,u[i].contrasena)==0){
+								igual=1;
+								break;
+							}else{
+								igual=0;
+							}
+						}
+						
+						if(igual==0){
+							printf("Usuario o contrasena son incorrectos.\n");
+						}else{
+							printf("Usuario valido\n");
+						}
+						system("PAUSE");
+					}while(igual==0);
+				
+					
 				break;
-				
+							
 			case 'b': printf("REGISTRATE\nSigue las instrucciones\n");
 									
 					//Abrimos fichero
@@ -140,7 +155,6 @@ int main(){
 					fclose(aumfichero);
 					system("PAUSE");
 					break;	
-					
 			case 'c':printf("INSTRUCCIONES:\n");
 			
 				printf("En este juego deberas responder a las preguntas que se te formulen, apostando tu dinero en la(s) respuesta(s) que creas correctas. Tu objetivo es terminar el juego con la mayor cantidad de dinero posible.\n");
@@ -169,16 +183,48 @@ int main(){
 						}
 						
 						system("PAUSE");		
-					}while(info!='c');
+				}while(info!='c');
 				
 					break;
 					
-			case 'd':printf("Adios");
+			case 'd':printf("¡Nos vemos otro dia!");
 					break;
 		
 			default: 
 					printf("Opcion incorrecta\n");
 					break;
 		}
+	
+	if(opcion=='a' || opcion=='b'){
+		do{
+			printf("Ya puede empezar a jugar¡Suerte!\n");
+				
+			printf("\n**PREGUNTA 1**\n");
+			printf("¿Cuanto es 1+1?\n");
+			printf("OPCION A: 1\n");
+			printf("OPCION B: 4\n");
+			printf("OPCION C: 2\n");
+				
+			printf("Tienes %d euros\n", dinero);
+			do {
+				printf("¿Cuanto apuestas por la opcion A?\n");
+				do {
+					scanf("%d", &apuesta1A);
+				} while (apuesta1A % 1000 != 0);
+					
+				printf("¿Cuanto apuestas por la opcion B?\n");
+				do {
+					scanf("%d", &apuesta1B);
+				} while (apuesta1B % 1000 != 0);
+					
+				printf("¿Cuanto apuestas por la opcion C?\n");
+				do {
+					scanf("%d", &apuesta1C);
+				} while (apuesta1C % 1000 != 0);
+			} while (apuesta1A + apuesta1B + apuesta1C != dinero);
+			dinero= apuesta1C;
+			printf("La opcion correcta es la C. Te quedan %d euros\n", dinero);
+		}
+	}
 	}while(respuesta!='d');
 }
