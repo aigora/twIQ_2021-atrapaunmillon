@@ -196,34 +196,62 @@ int main(){
 		}
 	
 	if(opcion=='a' || opcion=='b'){
-		do{
-			printf("Ya puede empezar a jugar¡Suerte!\n");
-				
+		printf("Ya puede empezar a jugar¡Suerte!\n");
+		do{	
 			printf("\n**PREGUNTA 1**\n");
-			printf("¿Cuanto es 1+1?\n");
-			printf("OPCION A: 1\n");
-			printf("OPCION B: 4\n");
-			printf("OPCION C: 2\n");
+			printf("¿Qué es un crótalo?\n");
+			printf("OPCION A: Un lagarto\n");
+			printf("OPCION B: Un pájaro\n");
+			printf("OPCION C: Una serpiente\n");
 				
 			printf("Tienes %d euros\n", dinero);
 			do {
-				printf("¿Cuanto apuestas por la opcion A?\n");
+				printf("¿Cuanto apuestas por la opcion A? (Tiene que ser divisible por 1000)\n");
 				do {
 					scanf("%d", &apuesta1A);
 				} while (apuesta1A % 1000 != 0);
 					
-				printf("¿Cuanto apuestas por la opcion B?\n");
+				printf("¿Cuanto apuestas por la opcion B? (Tiene que ser divisible por 1000)\n");
 				do {
 					scanf("%d", &apuesta1B);
 				} while (apuesta1B % 1000 != 0);
 					
-				printf("¿Cuanto apuestas por la opcion C?\n");
+				printf("¿Cuanto apuestas por la opcion C? (Tiene que ser divisible por 1000)\n");
 				do {
 					scanf("%d", &apuesta1C);
 				} while (apuesta1C % 1000 != 0);
 			} while (apuesta1A + apuesta1B + apuesta1C != dinero);
 			dinero= apuesta1C;
+			printf("La opcion correcta es la C. Te quedan %d euros\n", dinero); 
+		} while 
+		if (dinero != 0) {
+			do{	
+				printf("\n**PREGUNTA 2**\n");
+				printf("¿Quién escribió El Principito?\n");
+				printf("OPCION A: Antoine de Saint-Exupery\n");
+				printf("OPCION B: Jorge-Luis Borges\n");
+				printf("OPCION C: Victor Hugo\n");
+				
+				printf("Tienes %d euros\n", dinero);
+				do {
+					printf("¿Cuanto apuestas por la opcion A? (Tiene que ser divisible por 1000)\n");
+					do {
+						scanf("%d", &apuesta2A);
+					} while (apuesta1A % 1000 != 0);
+					printf("¿Cuanto apuestas por la opcion B? (Tiene que ser divisible por 1000)\n");
+					do {
+						scanf("%d", &apuesta2B);
+					} while (apuesta1B % 1000 != 0);
+					
+				printf("¿Cuanto apuestas por la opcion C? (Tiene que ser divisible por 1000)\n");
+				do {
+					scanf("%d", &apuesta2C);
+				} while (apuesta1C % 1000 != 0);
+			} while (apuesta1A + apuesta1B + apuesta1C != dinero);
+			dinero= apuesta1C;
 			printf("La opcion correcta es la C. Te quedan %d euros\n", dinero);
+		} else {
+				printf("Te has quedado sin dinero. Intentalo de nuevo.\n")
 		}
 	}
 	}while(respuesta!='d');
