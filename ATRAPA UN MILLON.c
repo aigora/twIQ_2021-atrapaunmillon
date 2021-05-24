@@ -1,5 +1,6 @@
 //ATRAPA UN MILLÓN
 #include<stdio.h>
+#define N 150
 
 struct usuario{
 
