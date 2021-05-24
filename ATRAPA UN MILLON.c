@@ -7,6 +7,27 @@ struct usuario{
 	char contrasena[200];
 };
 
+void imprimirPregunta (int n, char pregunta[], char respuestaA[], char respuestaB[], char respuestaC[]) {
+	printf("\n**PREGUNTA %d**\n", n);
+	printf("%s\n", pregunta);
+	printf("OPCION A: %s \n", respuestaA);
+	printf("OPCION B: %s \n", respuestaB);
+	printf("OPCION C: %s \n", respuestaC);
+}
+
+struct preguntas {
+	char pregunta[N];
+	char respuestaA[N];
+	char respuestaB[N];
+	char respuestaC[N];
+};
+
+struct apuestas {
+	int apuestaA;
+	int apuestaB;
+	int apuestaC;
+};
+
 int main(){
 	char respuesta,info;
 	int i;
