@@ -147,51 +147,27 @@ int main(){
 					//Cerramos el fichero
 					fclose(aumfichero);
 					
-					//Pedimos los datos al usuario y comprobamos si el usuario es correcto y no es el mismo que otro
-					do{
-						printf("Introduzca  nombre de usuario:\n");
-						fflush(stdin);
-						scanf("%s",userName);
-						for(i=0;i<numUsuario;i++){
-							if(strcmp(userName,u[i].nombreUsuario)==0){
-								copia=1;
-								break;
-							}else{
-								copia=0;
-							}
-						}
-						if(copia==1){
-							printf("Ususario ya existente. Pruebe de nuevo\n");
-							//system("PAUSE");
-						}else{
-							printf("Usuario valido\n");
-							
-							strcpy(u[numUsuario].nombreUsuario,userName);
-						}
-						
-					}while(copia==1);
+					//Pedimos los datos al usuario 
+				
+					printf("Introduzca  nombre de usuario:\n");
+					fflush(stdin);
+					scanf("%s",u[numUsuario].nombreUsuario);
 					
 					printf("Introduzca contrasena:\n");
 					fflush(stdin);
 					scanf("%s",u[numUsuario].contrasena);
-				
-					for(i=0;i<=numUsuario;i++){
-						printf("%s %s\n",u[i].nombreUsuario,u[i].contrasena);
-					}
 				
 					//Se abre en modo escritura
 					aumfichero= fopen("datosUsuarios.txt","w");
 					
 					
 					//Imprimimos los datos al fichero y añadimos los datos
-					for(i=0;i<=numUsuario;i++){
-				
-						fprintf(aumfichero,"%s\n%s\n",u[i].nombreUsuario,u[i].contrasena);
-					}
+					fprintf(aumfichero,"%s %s",u[numUsuario].nombreUsuario,u[numUsuario].contrasena);
 					
 					//Cerramos de nuevo el fichero
 					fclose(aumfichero);
-					break;	
+					break;
+				
 			case 'c':printf("INSTRUCCIONES:\n");
 			
 				printf("En este juego deberas responder a las preguntas que se te formulen, apostando tu dinero en la(s) respuesta(s) que creas correctas. Tu objetivo es terminar el juego con la mayor cantidad de dinero posible.\n");
