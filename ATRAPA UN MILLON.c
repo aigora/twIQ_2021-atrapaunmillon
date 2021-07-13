@@ -34,7 +34,7 @@ int main(){
 	char respuesta,info;
 	int i, igual=0;
 	char userName[200];
-	char password;
+	char password[200];
 	int copia=0;
 	int numUsuario;
 	struct usuario u[i];
