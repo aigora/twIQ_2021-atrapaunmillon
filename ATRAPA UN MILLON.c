@@ -1,5 +1,6 @@
 //ATRAPA UN MILLÓN
 #include<stdio.h>
+#include<string.h>
 #define N 150
 
 struct usuario{
@@ -31,7 +32,7 @@ struct apuestas {
 
 int main(){
 	char respuesta,info;
-	int i;
+	int i, igual=0;
 	char userName[200];
 	char password;
 	int copia=0;
@@ -58,7 +59,6 @@ int main(){
 	struct preguntas pregunta8={"¿En que comunidad autonoma nace el rio Ebro?", "Cantabria", "Aragon", "La Rioja"};
 	
 	do{
-		system("cls");//Borrar pantalla	
 		printf("ATRAPA UN MILLON\n Bienvenido al menu opciones:\n ");
 		printf("\nIntroduce la opcion:\n");
 		printf("._____________________________.\n");
@@ -119,7 +119,6 @@ int main(){
 						}else{
 							printf("Usuario valido\n");
 						}
-						system("PAUSE");
 					}while(igual==0);
 				
 					
@@ -139,7 +138,7 @@ int main(){
 					
 					//Miramos cuántos usuarios ya hay en el fichero e introducir a un vector
 					i=0;
-					while(fscanf(vpfichero,"%s %s",u[i].nombreUsuario ,u[i].contrasena)!=EOF){
+					while(fscanf(aumfichero,"%s %s",u[i].nombreUsuario ,u[i].contrasena)!=EOF){
 						numUsuario++;
 						i++;
 					}
@@ -192,7 +191,6 @@ int main(){
 					
 					//Cerramos de nuevo el fichero
 					fclose(aumfichero);
-					system("PAUSE");
 					break;	
 			case 'c':printf("INSTRUCCIONES:\n");
 			
@@ -220,8 +218,7 @@ int main(){
 						}else{
 							printf("Opcion no disponible\n");
 						}
-						
-						system("PAUSE");		
+								
 				}while(info!='c');
 				
 					break;
